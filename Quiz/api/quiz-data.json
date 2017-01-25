@@ -1,0 +1,14 @@
+{
+	"questions" : [
+		{
+			"question" : "What will the code below output to the console and why?",
+			"options" : ["1","2","3","4"],
+			"answer" : 0
+		},
+		{
+			"question" : "What will the code below output to the console and why?",
+			"options" : ["1","2","3","4"],
+			"answer" : 0
+		}
+	]
+}
