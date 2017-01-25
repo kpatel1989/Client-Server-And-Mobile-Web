@@ -1,0 +1,34 @@
+.container {
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: 4px solid #3400ab;
+}
+
+* {font-family: Arial,Helvetica,Times New Roman;}
+
+label{
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+}
+
+span {
+    width: 330px;
+    display: inline-block;
+}
+
+font {
+}
+
+.error {
+    display: inline-block;
+}
+
+.control {
+    margin: 4px auto;
+}
+
+input#joinButton {
+    margin-left: 205px;
+}
