@@ -1,0 +1,205 @@
+html,body
+{
+	width: 100%;
+	height:100%;
+}
+img.logo {
+    max-width: 100px;
+}
+
+.home-page {
+    display: block;
+    text-align: center;
+}
+
+.build-your-order {
+    display: none;
+}
+
+.cart {
+    display: none;
+}
+
+.meat-list img, .bread-list img {
+    /* max-width: 150px; */
+    max-height: 95px;
+}
+
+.meat-list li, .bread-list li {
+    display: inline-block;
+    padding: 10px;
+    background: #c5da7a;
+    margin: 12px;
+    /* max-width: 170px; */
+    text-align: center;
+    vertical-align: top;
+    position: relative;
+}
+
+.meat-list span.meat-name, .bread-list span.bread-name {
+    display: block;
+    text-align: center;
+}
+
+.add-btn {
+    padding: 3px;
+    background: green;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.minus-btn {
+    background: #8b1515;
+    border-radius: 50%;
+    padding: 3px;
+    color: white;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+span.price {
+    text-align: center;
+    display: block;
+    /* float: right; */
+    /* padding-left: 20px; */
+    color: maroon;
+    font-weight: bold;
+}
+
+span.meat-name, span.bread-name {
+    font-weight: bold;
+    color: black;
+}
+
+input.addToCart {background-color: #144e15;border-color: rgb(15, 16, 15);}
+
+.controls {
+    text-align: center;
+}
+
+input.meat-radio-button, input.bread-radio-button {
+    /* -webkit-appearance: radio; */
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 5px;
+    top: 0px;
+    background: white;
+}
+
+input.meat-radio-button {}
+
+li {}
+
+img {}
+
+input#addToCart {}
+
+span.meat-name {}
+
+ul.meat-list {}
+
+div#myCarousel {
+    width: 1000px;
+    display: inline-block;
+}
+
+.navbar-collapse span {
+    color: green;
+}
+
+.shopping-badge {
+    color:white!important;
+    background:green;
+}
+
+a#cartHeader {
+    color: green;
+    font-weight: bold;
+}
+
+a#buildYourOrderHeader {
+    font-weight: bold;
+    color: green;
+}
+
+nav.navbar.navbar-default {
+    background: #c5da7a;
+    border-width: 0px;
+}
+
+.background {
+    background: rgb(9, 76, 7);
+    width: 100%;
+    min-height: 85%;
+    padding-top: 75px;
+    margin-top: -75PX;
+    padding-bottom: 20px;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    background: rgba(231, 243, 165, 0.97);
+}
+
+.build-your-order, .cart {
+    background: #e5f2a3;
+}
+
+.meat-select h4 {
+    color: #256127;
+    padding-left: 40px;
+    font-weight: bold;
+}
+
+button.btn.btn-success {
+    background: #255625;
+}
+
+button.btn.btn-success:hover,input.addToCart:hover {
+    background: #5db132;
+}
+
+.quantityValue input {
+    width: 40px;
+    text-align: right;
+}
+
+div#footer-legal {
+    text-align: center;
+    background: #c5da7a;
+    height: 100%;
+    /* float: left; */
+    /* width: 100%; */
+    position: relative;
+}
+
+.copy-small {
+    color: green;
+    font-weight: bold;
+    margin: 0px;
+    float: left;
+    width: 100%;
+    background: #c5da7a;
+    border: 0px;
+}
+
+footer {
+    height: 100px;
+}
+
+section.social-media img {
+    /* width: 30px; */
+    height: 30px;
+}
+
+section.social-media {
+    color: #094c07;
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+    position: absolute;
+    right: 19px;
+    top: -12px;
+}
