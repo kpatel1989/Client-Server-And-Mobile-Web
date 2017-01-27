@@ -1,4 +1,4 @@
-app.factory("Timer",["$interval",function($interval){
+app.factory("Timer",["$interval","$rootScope",function($interval,$rootScope){
 	var Timer = function() {
 
 	}
@@ -11,13 +11,16 @@ app.factory("Timer",["$interval",function($interval){
 		var self = this;
 		this.promise = $interval(function() {
 			self.time--;
-		}, 1000, self.time);	
+		}, 1000, self.time);
+		this.promise.then(function(){
+			$rootScope.$broadcast("TIMER_STOPPED");
+		});
 	};
 	Timer.prototype.restart = function() {
 		this.start(this.startTime);
 	};
 	Timer.prototype.stop = function() {
-		cancel(this.promise);
+		$interval.cancel(this.promise);
 	}
 	return Timer;
 }]);

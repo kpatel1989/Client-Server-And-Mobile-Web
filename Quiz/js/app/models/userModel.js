@@ -1,5 +1,9 @@
 app.factory("User",['$http',function($http){
 	var User = function(userData) {
+		if (!userData) {
+			return;
+		}
+		this.id = userData.id || null;
 		this.firstName = userData.firstName;
 		this.lastName = userData.lastName;
 		this.emailAddress = userData.emailAddress;
@@ -7,6 +11,7 @@ app.factory("User",['$http',function($http){
 		this.address = userData.address;
 	};
 
+	User.prototype.id = null,
 	User.prototype.firstName = "",
 	User.prototype.lastName = "",
 	User.prototype.emailAddress = "",
@@ -18,6 +23,7 @@ app.factory("User",['$http',function($http){
 	};
 	User.prototype.toJSON = function() {
 		return {
+			id : this.id,
 			firstName : this.firstName,
 			lastName : this.lastName,
 			emailAddress : this.emailAddress,

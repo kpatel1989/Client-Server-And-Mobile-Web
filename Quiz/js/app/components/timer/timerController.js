@@ -10,7 +10,8 @@ app.controller("timerController", ['$scope','$rootScope','Timer',function($scope
 	$scope.restartTimer = function() {
 		$timer.restart();
 	}
-	$rootScope.$on("TEST_STARTED",function(){
-		$scope.startTimer(60 * 1000);
+	$scope.startTimer(1 * 1000);
+	$rootScope.$on("TEST_FINISHED",function(){
+		$scope.resetTimer();
 	})
 }]);

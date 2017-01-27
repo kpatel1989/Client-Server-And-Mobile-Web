@@ -1,14 +1,22 @@
-<div class="quiz-app" ng-show="quiz.showTest">
+<div class="quiz-app" ng-if="quiz.showTest">
 	<div ng-controller="timerController">
 		<timer></timer>
 	</div>
 	<div class="container" >
-		<div class="row question">{{questionModel.question}}</div>
-		<ul class="row" ng-repeat="option in questionModel.options"}}>
-			<li class="option">{{option}}</li>
+		<div class="row question">{{questionNumber}}. {{questionModel.question}}</div>
+		<ul class="row">
+			<li class="option" ng-repeat="option in questionModel.options">
+				<div class="radio">
+					<label>
+						<input type="radio" name="option" value="{{$index}}" ng-model="userTest.attemptedQuestions[questionModel.id]"  ng-change="optionChange(selectedOption)"/>
+						{{option}}
+					</label>
+				</div>
+			</li>
 		</ul>
 	</div>
-	<div class="btn-group">
-		<button class="btn btn-default" ng-click="nextQuestion()"> Next ></button>
+	<div class="row pull-right">
+		<button class="btn btn-default" ng-click="nextQuestion()" ng-show="!isLast"> Next ></button>
+		<button class="btn btn-success" ng-click="submit()" ng-show="isLast"> Submit </button>
 	</div>
 </div>

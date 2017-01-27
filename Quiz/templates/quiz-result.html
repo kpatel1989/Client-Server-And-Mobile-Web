@@ -1,0 +1,14 @@
+<div ng-if="quiz.showResult">
+	<quizcertificate></quizcertificate>
+	<div class="quiz-result hide">
+		<div id="scoreContainer"> Your score is <label id="score">{{score}}</label></div>
+		<ul id="questionsList">
+			<li class="question" ng-repeat="que in quizModel.questions">
+				<label class="text-info">{{que.question}}</label>
+				<label class="pull-right label label-success" ng-if="isCorrect(que)"><span class="glyphicon glyphicon-ok"></span></label>
+				<label class="pull-right label label-danger" ng-if="!isCorrect(que)"><span class="glyphicon glyphicon-remove"></span></label>
+				<div class="text-success">Answer : {{que.options[que.answer]}}</div>
+			</li>
+		</ul>
+	</div>
+</div>

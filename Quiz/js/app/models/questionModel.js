@@ -1,5 +1,6 @@
 app.factory("Question",['$http',function($http){
 	function Question (q) {
+		this.id = q.id;
 		this.question = q.question;
 		this.options = q.options;
 		this.answer = q.answer;
@@ -10,5 +11,6 @@ app.factory("Question",['$http',function($http){
 	Question.prototype.isCorrect = function(selectedOption) {
 		return selectedOption == this.answer;
 	}
+	
 	return Question;
 }]);
