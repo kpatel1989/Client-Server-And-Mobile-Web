@@ -22,7 +22,7 @@ app.controller("timerController", ['$scope','$rootScope','Timer',function($scope
 		$timer.restart();
 	}
 
-	$scope.startTimer(1 * 1000);
+	$scope.startTimer(60 * 1000);
 	
 	/**
 	 * Test finished event listener.

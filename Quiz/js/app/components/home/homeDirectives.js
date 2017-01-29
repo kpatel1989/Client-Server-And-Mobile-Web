@@ -80,7 +80,7 @@ app.directive("quizregister",["UserTest",function(UserTest) {
 			 * Check of email address is valid on emailAddress textbox blur event. 
 			 */
 			scope.validateEmailAddress = function() {
-				scope.invalidEmailAddress = (scope.user.emailAddress == "");
+				scope.invalidEmailAddress = !quizRegistrationForm.emailAddress.validity.valid;
 			}
 			
 			/**
@@ -129,12 +129,6 @@ app.directive("quiztest",function(){
 				if  (scope.quizModel.isLast()) {
 					scope.isLast = true;
 				}
-			}
-			/**
-			 * Radio button click event listener.
-			 */
-			scope.optionChange = function(value) {
-				scope.userTest.attemptQuestion(scope.questionModel.id,parseInt(value));
 			}
 
 			/**

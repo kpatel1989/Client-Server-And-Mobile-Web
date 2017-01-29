@@ -9,7 +9,7 @@
 	</div>
 	<div class="register-quiz text-center col-md-7">
 		<label class=""> Enter the following details to start the quiz. </label>
-		<form class='form-horizontal' name="quiz-registration-form">
+		<form class='form-horizontal' name="quizRegistrationForm">
 			<div class="form-group">
 				<label class="col-md-3 control-label" for="firstName">First Name</label>
 				<div class="col-md-7">
@@ -33,7 +33,7 @@
 			<div class="form-group">
 				<label class="col-md-3 control-label" for="emailAddress">Email Address</label>
 				<div class="col-md-7">
-					<input class=" form-control" type="email" ng-blur="validateEmailAddress()" value="" id="emailAddress" ng-model="user.emailAddress"/>
+					<input class=" form-control" type="email" ng-blur="validateEmailAddress()" name="emailAddress" id="emailAddress" ng-model="user.emailAddress" required=true />
 					<div class="error" role="alert" ng-show="invalidEmailAddress">
 					  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 					  Enter a valid email address
