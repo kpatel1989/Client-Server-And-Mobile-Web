@@ -1,9 +1,16 @@
+/**
+ * Quiz Home directive handler.
+ */
 app.directive("quizhome",function() {
 	return {
 		restrict: 'AE',
 		templateUrl: '/templates/quiz-home.html',
 		link: function(scope,elem,attr) {
+			/**
+			 * "Take a quiz" button click handler 
+			 */
 			scope.takeAQuiz = function() {
+				// Display Registration page.
 				scope.quiz.showHome = false;
 				scope.quiz.showRegister = true;
 			}
@@ -11,62 +18,111 @@ app.directive("quizhome",function() {
 	}
 });
 
+/**
+ * Quiz Register directive handler.
+ */
 app.directive("quizregister",["UserTest",function(UserTest) {
 	return {
 		restrict: 'AE',
 		templateUrl: '/templates/quiz-register.html',
 		link: function(scope, elem, attr) {
+			/**
+			 * Register button click handler.
+			 */
 			scope.start = function() {
+				// Check if the form is valid.
 				if (!scope.validateForm()) {
 					return false;
 				}
+				//Display the question number
 				scope.questionNumber=1;
+
+				//Create a UserTest object to save user selected options.
 				scope.userTest = new UserTest({
 					"user" : scope.user
 				});
+				//Fetch the next question and check for last question
 				scope.questionModel = scope.quizModel.getNextQuestion();
 				if  (scope.quizModel.isLast()) {
 					scope.isLast = true;
 				}
+				//Display the test page and hide the registration page.
 				scope.quiz.showRegister = false;
 				scope.quiz.showTest = true;
-				// scope.$root.$broadcast("TEST_STARTED",600);
 			};
+			/**
+			 * Reset button click handler.
+			 */
 			scope.reset = function() {
 				scope.score = 0;
+				scope.invalidFirstName = false;
+				scope.invalidLastName = false;
+				scope.invalidEmailAddress = false;
+				scope.invalidPhoneNumber = false;
+				scope.invalidAddress = false;
 			}
+
+			/**
+			 * Check of first name is valid on firstName textbox blur event. 
+			 */
 			scope.validateFirstName = function() {
 				scope.invalidFirstName = (scope.user.firstName == "")
 			}
+			
+			/**
+			 * Check of last name is valid on lastName textbox blur event. 
+			 */
 			scope.validateLastName = function() {
 				scope.invalidLastName = (scope.user.lastName == "");
 			}
+			
+			/**
+			 * Check of email address is valid on emailAddress textbox blur event. 
+			 */
 			scope.validateEmailAddress = function() {
 				scope.invalidEmailAddress = (scope.user.emailAddress == "");
 			}
+			
+			/**
+			 * Check of phone number is valid on phoneNumber textbox blur event. 
+			 */
 			scope.validatePhoneNumber = function() {
 				scope.invalidPhoneNumber = (scope.user.phoneNumber == "");
 			}
+			
+			/**
+			 * Check of address is valid on address textbox blur event. 
+			 */
 			scope.validateAddress = function() {
 				scope.invalidAddress = (scope.user.address == "");
 			}
+			
+			/**
+			 * Check if all the fields in the form are valid on submit button click. 
+			 */
 			scope.validateForm = function() {
 				scope.validateFirstName();
 				scope.validateLastName();
 				scope.validateEmailAddress();
 				scope.validatePhoneNumber();
 				scope.validateAddress();
-				return !(scope.invalidFirstName && scope.invalidLastName && scope.invalidEmailAddress && scope.invalidPhoneNumber && scope.invalidAddress);
+				return !(scope.invalidFirstName || scope.invalidLastName || scope.invalidEmailAddress || scope.invalidPhoneNumber || scope.invalidAddress);
 			}
 		}
 	}
 }]);
 
+/**
+ * Quiz Test directive handler.
+ */
 app.directive("quiztest",function(){
 	return {
 		restrict: 'AE',
 		templateUrl: '/templates/quiz-test.html',
 		link: function(scope, elem, attr) {
+			/**
+			 * Next Question button click hanler
+			 */
 			scope.nextQuestion = function() {
 				scope.questionNumber++;
 				scope.questionModel = scope.quizModel.getNextQuestion();
@@ -74,9 +130,16 @@ app.directive("quiztest",function(){
 					scope.isLast = true;
 				}
 			}
+			/**
+			 * Radio button click event listener.
+			 */
 			scope.optionChange = function(value) {
 				scope.userTest.attemptQuestion(scope.questionModel.id,parseInt(value));
 			}
+
+			/**
+			 * Submit button click listener.
+			 */
 			scope.submit = function() {
 				scope.$root.$broadcast("TEST_FINISHED",600);
 				var score = scope.quizModel.compileAnswersToScore(scope.userTest.getSelectedOptions());
@@ -89,7 +152,9 @@ app.directive("quiztest",function(){
 	}
 });
 
-
+/**
+ * QuizResult directive handler.
+ */
 app.directive("quizresult",function(){
 	return {
 		restrict: 'AE',	
@@ -100,11 +165,14 @@ app.directive("quizresult",function(){
 					return false;
 				}
 				return question.isCorrect(scope.userTest.getSelectedOption(question.id));
-			} 
+			}
 		}
 	}
 });
 
+/**
+ * Quiz Certificate handler.
+ */
 app.directive("quizcertificate",function(){
 	return {
 		restrict: 'AE',	

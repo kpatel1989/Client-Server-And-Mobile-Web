@@ -1,3 +1,6 @@
+/**
+ * Creates a User Model class.
+ */
 app.factory("User",['$http',function($http){
 	var User = function(userData) {
 		if (!userData) {
@@ -18,9 +21,16 @@ app.factory("User",['$http',function($http){
 	User.prototype.phoneNumber = "",
 	User.prototype.address = "",
 
+	/**
+	 * Returns the full username
+	 */
 	User.prototype.getUserFullName = function() {
 		return this.firstName + " " + this.lastName;
 	};
+
+	/**
+	 * Converts the object into a json object.
+	 */
 	User.prototype.toJSON = function() {
 		return {
 			id : this.id,

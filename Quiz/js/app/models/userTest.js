@@ -1,3 +1,6 @@
+/**
+ * Creates a UserTest model to save the quiz for a user.
+ */
 app.factory("UserTest",["$http", function($http){
 	var UserTest = function(userTestData) {
 		this.user = userTestData.user || null;
@@ -7,21 +10,38 @@ app.factory("UserTest",["$http", function($http){
 	UserTest.prototype.userId = null;
 	UserTest.prototype.score = null;
 	UserTest.prototype.attemptedQuestions = {};
-	UserTest.prototype.attemptQuestion = function(questionId, optionSelected) {
-		//this.attemptedQuestions[questionId] = optionSelected;
-	};
+
+	/**
+	 * Returns the list of selectedOptions
+	 */
 	UserTest.prototype.getSelectedOptions = function() {
 		return this.attemptedQuestions;
 	};
+
+	/**
+	 * Returns the selected option for the given question.
+	 */
 	UserTest.prototype.getSelectedOption = function(questionId) {
 		return this.attemptedQuestions[questionId];
 	};
+
+	/**
+	 * saves the score computed in the question bank model.
+	 */
 	UserTest.prototype.setScore = function(score) {
 		this.score = score;
 	};
+
+	/**
+	 * Returns the score.
+	 */
 	UserTest.prototype.getScore = function() {
 		return this.score;
 	};
+
+	/**
+	 * Converts the UserTest Model into a json object.
+	 */
 	UserTest.prototype.toJSON = function() {
 		return {
 			id : this.id,

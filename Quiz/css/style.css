@@ -46,20 +46,20 @@ textarea#address {
 
 .top-section {
     height: 130px;
-    background: #454545;
+    background: #454545!important;
     padding: 20px;
     padding-bottom: 0px;
 }
 
 .certificate {
-    color: white;
+    color: white!important;
 }
 
 .bottom-section {
-    color: black;
+    color: black!important;
     padding: 20px;
     padding-top: 0px;
-    background: #e3e3e3;
+    background: #e3e3e3!important;
     text-align: center;
 }
 
@@ -69,6 +69,7 @@ textarea#address {
     border: 3px solid;
     border-bottom: 0px;
     padding: 20px;
+    color: white!important;
 }
 
 .bottom-content {
@@ -81,12 +82,14 @@ textarea#address {
     text-align: center;
     font-size: 25px;
     line-height: 60px;
+    color: white!important;
 }
 
 .participant-name {
     font-weight: 800;
     font-style: italic;
     font-size: 25px;
+    font-family: Times New Roman;
 }
 
 .certificate-footer > div {
@@ -102,4 +105,10 @@ textarea#address {
 
 .certificate-footer > div {
     vertical-align: bottom;
+}
+
+@media print {
+    body {
+    padding-top: 20px;
+    }
 }
