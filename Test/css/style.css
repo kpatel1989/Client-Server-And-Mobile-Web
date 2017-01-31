@@ -1,0 +1,46 @@
+html,body{
+	width:100%;
+	height:100%;
+	font-family = 'Arial';
+	font-family: Arial, Helvetica, Times New Roman;
+}
+
+h1 {
+	text-align:center;
+}
+
+.row {
+	height	40px;
+}
+
+.label {
+	 text-align:right; 
+}
+
+.col-3 {
+	width:25%;
+	margin-top:5px;
+	margin-bottom:5px;
+	height:auto;
+	display:inline-block;
+}
+
+.col-offset-3 {
+	margin-left:25%;
+	height:auto;
+	display:inline-block;
+}
+
+input[type=text] {
+    width: 100%;
+}
+
+span.error-message {
+    color: red;
+}
+
+input[type=button] {
+    border: 1px solid #CACACA;
+    padding: 6px;
+    border-radius: 2px;
+}
