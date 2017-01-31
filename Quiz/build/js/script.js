@@ -1,1 +1,0 @@
-define(function(a){var b=function(){var a="Kartik";console.log(a)};return b});
