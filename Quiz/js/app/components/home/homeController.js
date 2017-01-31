@@ -1,12 +1,7 @@
-app.controller("quizAppController", ['$scope','quizService','$rootScope', "QuizModel", "User",
-	function($scope,quizService,$rootScope, QuizModel,User) {
+app.controller("quizAppController", ['$scope','$rootScope', "User",
+	function($scope,$rootScope,User) {
 		$scope.quizData = null;
-		var defer = quizService.getData();
-		defer.then(function(res){
-			// initialize the quiz model with data downloaded from service.
-			$scope.quizModel = new QuizModel(res.data);
-		});
-
+		
 		// initialize ng-show directive to show home page.
 		$scope.quiz = {
 			showRegister : false,
@@ -14,7 +9,7 @@ app.controller("quizAppController", ['$scope','quizService','$rootScope', "QuizM
 		};
 		//create an object of user to connect the registration page
 		$scope.user = new User();
-
+		$scope.date = new Date();
 		//Timer stop event listener to display submit button.
 		$rootScope.$on("TIMER_STOPPED",function(obj,time){
 			$scope.isLast = true;

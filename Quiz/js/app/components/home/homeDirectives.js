@@ -1,22 +1,36 @@
 /**
  * Quiz Home directive handler.
  */
-app.directive("quizhome",function() {
+app.directive("quizhome",['quizService', "QuizModel", function(quizService, QuizModel) {
 	return {
 		restrict: 'AE',
-		templateUrl: '/templates/quiz-home.html',
+		templateUrl: 'templates/quiz-home.html',
 		link: function(scope,elem,attr) {
+			
 			/**
 			 * "Take a quiz" button click handler 
 			 */
 			scope.takeAQuiz = function() {
+				var defer = quizService.getData();
+				defer.then(onDataReceived);
+				scope.quizName= "Javascript";
+			}
+			scope.takeAJQueryQuiz = function() {
+				var defer = quizService.getJqueryData();
+				defer.then(onDataReceived);
+				scope.quizName = "Jquery";
+			}
+			var onDataReceived = function(res){
+				// initialize the quiz model with data downloaded from service.
+				scope.quizModel = new QuizModel(res.data);
+				
 				// Display Registration page.
 				scope.quiz.showHome = false;
 				scope.quiz.showRegister = true;
 			}
 		}
 	}
-});
+}]);
 
 /**
  * Quiz Register directive handler.
@@ -24,7 +38,7 @@ app.directive("quizhome",function() {
 app.directive("quizregister",["UserTest",function(UserTest) {
 	return {
 		restrict: 'AE',
-		templateUrl: '/templates/quiz-register.html',
+		templateUrl: 'templates/quiz-register.html',
 		link: function(scope, elem, attr) {
 			/**
 			 * Register button click handler.
@@ -118,7 +132,7 @@ app.directive("quizregister",["UserTest",function(UserTest) {
 app.directive("quiztest",function(){
 	return {
 		restrict: 'AE',
-		templateUrl: '/templates/quiz-test.html',
+		templateUrl: 'templates/quiz-test.html',
 		link: function(scope, elem, attr) {
 			/**
 			 * Next Question button click hanler
@@ -152,7 +166,7 @@ app.directive("quiztest",function(){
 app.directive("quizresult",function(){
 	return {
 		restrict: 'AE',	
-		templateUrl: '/templates/quiz-result.html',
+		templateUrl: 'templates/quiz-result.html',
 		link: function(scope, elem, attr) {
 			scope.isCorrect = function(question) {
 				if (!scope.quiz.showResult) {
@@ -170,6 +184,6 @@ app.directive("quizresult",function(){
 app.directive("quizcertificate",function(){
 	return {
 		restrict: 'AE',	
-		templateUrl: '/templates/quiz-certificate.html'
+		templateUrl: 'templates/quiz-certificate.html'
 	}
 });

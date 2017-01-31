@@ -26,6 +26,8 @@ app.factory("Timer",["$interval","$rootScope",function($interval,$rootScope){
 		// Broadcast the timer stopped event
 		this.promise.then(function(){
 			$rootScope.$broadcast("TIMER_STOPPED");
+		}, function() {
+			console.log("Timer cancelled.");
 		});
 	};
 	Timer.prototype.restart = function() {
