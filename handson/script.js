@@ -9,22 +9,22 @@ $(document).ready(function(){
 		var m = parseInt($('#m').val());
 		var table = $("#matrixTable");
 		table.empty();
-		for(i=0;i<m;i++) {
-			var tr = $("<tr></tr>");
-			for(j=0;j<m;j++) {
-				var td = $("<td><input type='text' id='cell-"+ i + "-" + j +"' name='cell-"+ i  + j +"' readonly/></td>");
-				tr.append(td);
+		var tr = $("<tr></tr>"); 
+		for(k=0,i=0,j=0;k<m*m;k++,i = parseInt(k / m), j = k % m) {
+			var td = $("<td><input type='text' id='cell-"+ i + "-" + j +"' name='cell-"+ i  + j +"' readonly/></td>");
+			if (j == 0) {
+				tr = $("<tr></tr>");
 			}
+			tr.append(td);
+
 			table.append(tr);
 		}
 	}
 
 	$("#energize").click(function(){
 		var m = parseInt($('#m').val());
-		for(i=0;i<m;i++) {
-			for(j=0;j<m;j++) {
-				randomize(i,j);
-			}
+		for(k=0,i=0,j=0;k<m*m;k++,i = parseInt(k / m), j = k % m) {
+			randomize(i,j);
 		}
 	});
 
