@@ -198,3 +198,19 @@ textarea#address {
         padding-top: 20px;
     }
 }
+
+.labelled-input {
+    position: relative;
+}
+
+.labelled-input .control-label {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    text-align: left;
+    color: #b5b5b5;
+    padding-left: 12px;
+    transition: width 1s;
+}
+
+.labelled-input .control-label:hover {width: 30%;}

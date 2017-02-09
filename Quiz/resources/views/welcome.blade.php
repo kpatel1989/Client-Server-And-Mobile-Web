@@ -16,7 +16,8 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/lib/angular.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.module.js"></script>
-    <script type="text/javascript" src="{{config('app.url')}}/js/app/app.services.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/app.services.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userAuthenticationService.js"></script>
     
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerDirective.js"></script>
@@ -28,8 +29,12 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userModel.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userTest.js"></script>
 
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinController.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinDirective.js"></script>
+
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeDirectives.js"></script>
+
 </head>
 <body ng-app="quizApp">
     <nav class="navbar navbar-default hidden-print">
@@ -48,7 +53,7 @@
         <!-- Collect the nav link, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <!-- <li class="sign-in"><a href="#">Sign in / Register </a></li> -->
+            <li class="sign-in"><a href="#" data-toggle="modal" data-target="#signInModal">Sign in / Register </a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -61,5 +66,6 @@
             <quizresult></quizresult>
         </div>
     </div>
+    <signin></signin>
 </body>
 </html>

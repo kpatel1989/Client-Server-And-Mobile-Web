@@ -12,7 +12,7 @@ $(document).ready(function(){
 		for(i=0;i<m;i++) {
 			var tr = $("<tr></tr>");
 			for(j=0;j<m;j++) {
-				var td = $("<td><input type='text' id='cell-"+ i  + j +"' name='cell-"+ i  + j +"' readonly/></td>");
+				var td = $("<td><input type='text' id='cell-"+ i + "-" + j +"' name='cell-"+ i  + j +"' readonly/></td>");
 				tr.append(td);
 			}
 			table.append(tr);
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		for (loop=0;loop<10;loop++) {
 			window.setTimeout(function() {
 				intervalCount--;
-				$("#cell-"+row +col).val(parseInt(Math.random()*100));
+				$("#cell-"+row +"-"+col).val(parseInt(Math.random()*100));
 				if (intervalCount == 0) {
 					$("#submit").show();
 				}

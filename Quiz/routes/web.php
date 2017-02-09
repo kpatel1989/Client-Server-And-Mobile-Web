@@ -20,3 +20,6 @@ Route::get('/', function () {
 });*/
 
 Route::get('/api/quiz/{testname}', 'Quiz\QuizController@getTest');
+
+Route::post('/api/user/authenticate', 'User\UserController@login');
+Route::post('/api/user/register', 'User\UserController@register');
