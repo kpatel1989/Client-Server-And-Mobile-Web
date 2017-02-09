@@ -1,18 +1,38 @@
-app.controller("quizAppController", ['$scope','$rootScope', "User",
-	function($scope,$rootScope,User) {
+app.controller("HomeController", ['$scope','$rootScope', "User", "$location",'quizService', 'QuizModel', 
+	function($scope,$rootScope,User, $location,quizService,QuizModel) {
 		$scope.quizData = null;
-		
-		// initialize ng-show directive to show home page.
-		$scope.quiz = {
-			showRegister : false,
-			showHome : true
+
+		$scope.go = function ( path ) {
+		  $location.path( path );
 		};
-		//create an object of user to connect the registration page
-		$scope.user = new User();
-		$scope.date = new Date();
+
 		//Timer stop event listener to display submit button.
 		$rootScope.$on("TIMER_STOPPED",function(obj,time){
 			$scope.isLast = true;
 		})
+
+		/**
+		 * "Take a quiz" button click handler 
+		 */
+		$scope.takeAQuiz = function() {
+			var defer = quizService.getData();
+			defer.then($scope.onDataReceived, function(){
+				console.log("error");
+			});
+			$rootScope.quizName= "Javascript";
+		}
+		$scope.takeAJQueryQuiz = function() {
+			var defer = quizService.getJqueryData();
+			defer.then($scope.onDataReceived, function(){
+				console.log("error");
+			});
+			$rootScope.quizName = "Jquery";
+		}
+		var vm = this;
+		$scope.onDataReceived = function(res){
+			// initialize the quiz model with data downloaded from service.
+			$rootScope.quizModel = new QuizModel(res.data);
+			$scope.go('/test/register');
+		}
 	}
 ]);

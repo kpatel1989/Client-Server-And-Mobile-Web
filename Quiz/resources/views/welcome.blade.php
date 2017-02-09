@@ -15,7 +15,10 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/lib/jquery.min.js" ></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/lib/angular.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/lib/angular-route.min.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/lib/angular-cookies.min.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.module.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/app.routes.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/services/app.services.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userAuthenticationService.js"></script>
     
@@ -30,10 +33,14 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userTest.js"></script>
 
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinController.js"></script>
-    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinDirective.js"></script>
+    <!-- <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinDirective.js"></script> -->
 
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeController.js"></script>
-    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeDirectives.js"></script>
+    <!-- <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeDirectives.js"></script> -->
+    
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestInstructionController.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestController.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/ResultController.js"></script>
 
 </head>
 <body ng-app="quizApp">
@@ -59,11 +66,12 @@
       </div><!-- /.container-fluid -->
     </nav>
     <div class="container">
-        <div class="container" ng-controller="quizAppController">
-            <quizhome></quizhome>
+        <div class="container">
+            <div ng-view></div>
+           <!--  <quizhome></quizhome>
             <quizregister></quizregister>
             <quiztest></quiztest>
-            <quizresult></quizresult>
+            <quizresult></quizresult> -->
         </div>
     </div>
     <signin></signin>
