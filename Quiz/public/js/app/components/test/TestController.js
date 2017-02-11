@@ -1,9 +1,9 @@
-app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location",
-	function($scope,$rootScope,User,UserTest,QuizModel,$location) {
+app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', 
+	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage) {
 		$scope.go = function ( path ) {
 		  $location.path( path );
 		};
-
+		$localStorage.testStarted = true;
 		//Timer stop event listener to display submit button.
 		$rootScope.$on(app.constant.events.timerStopped,function(obj,time){
 			$scope.isLast = true;

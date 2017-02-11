@@ -1,11 +1,14 @@
 app.controller("HeaderController", ['$scope','$rootScope', "User", "$location", "UserAuthenticationService", "$localStorage",
 	function($scope,$rootScope,User, $location,UserAuthenticationService,$localStorage) {
 		if ($localStorage.userData) {
-			$scope.user = $localStorage.userData;
+			$scope.user  = $rootScope.user = $localStorage.userData;
 			$scope.isLoggedIn = true;
 		} else {
 			$scope.isLoggedIn = false;
 		}
+		$scope.go = function ( path ) {
+		  $location.path( path );
+		};
 		$scope.logout = function() {
 			var defer = UserAuthenticationService.logout();
 			defer.then($scope.onLogout);
@@ -15,7 +18,7 @@ app.controller("HeaderController", ['$scope','$rootScope', "User", "$location", 
 			$scope.isLoggedIn = false;
 		}
 		$rootScope.$on(app.constant.events.userSignedIn,function(obj,userData){
-			$scope.user = userData;
+			$scope.user = $rootScope.user = userData;
 			$scope.isLoggedIn = true;
 		});
 	}

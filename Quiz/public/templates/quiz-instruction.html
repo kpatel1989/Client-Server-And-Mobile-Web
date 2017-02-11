@@ -5,10 +5,12 @@
 			<li>The test contains 10 questions</li>
 			<li>There is a time limit of 10 minutes.</li>
 			<li>You will get 1 point for each correct answer. At the end of the Quiz, your total score will be displayed. Maximum score is 10 points.</li>
+			<li>The test will begin in the next screen</li>
 		</ul>
 	</div>
 	<div class="register-quiz text-center col-md-7">
-		<label>Sign in before starting the test.</label>
+		<input type="submit" class="btn btn-success" name="submit" value="Start Test" ng-click="start()"/>
+		<!-- <label>Sign in before starting the test.</label> -->
 		<!-- <form class='form-horizontal col-md-6' name="quizRegistrationForm">
 			<div>
 				<div class="">
@@ -23,8 +25,8 @@
 			<div>
 			<input type="button" class="btn btn-success" name="signIn" value="Proceed to test"/>
 			</div>
-		</form> -->
-		<label class=""> Enter the following details to start the quiz. </label>
+		</form>
+		<l abel class=""> Enter the following details to start the quiz. </label>
 		<form class='form-horizontal' name="quizRegistrationForm">
 			<div class="form-group">
 				<label class="col-md-3 control-label" for="firstName">First Name</label>
@@ -82,7 +84,7 @@
 					<input type="submit" class="btn btn-success" name="submit" value="Submit" ng-click="start()"/>
 				</div>
 			</div>
-		</form>
+		</form> -->
 		
 	</div>
 	

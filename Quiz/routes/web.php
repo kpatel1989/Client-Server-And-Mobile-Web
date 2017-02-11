@@ -15,9 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/api/quiz/{testname}',[
-	'middleware' => 'user',
-	'uses' => 'Quiz\QuizController@getTest']);
+Route::get('/api/quiz/{testname}', 'Quiz\QuizController@getTest');
 
 Route::post('/api/user/authenticate','User\UserController@login');
 

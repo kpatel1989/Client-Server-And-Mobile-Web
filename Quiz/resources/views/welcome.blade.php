@@ -39,7 +39,7 @@
             <li ng-show="isLoggedIn">
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>@{{user.firstName}}</span> <span>@{{user.lastName}}</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Dashboard</a></li>
+                    <li><a ng-click="go('/user/dashboard')">Dashboard</a></li>
                     <li role="separator" class="divider"></li>
                     <li>
                         <a ng-click="logout()"> Logout</a>
@@ -79,5 +79,6 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestInstructionController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/ResultController.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/components/user/dashboardController.js"></script>
 </body>
 </html>
