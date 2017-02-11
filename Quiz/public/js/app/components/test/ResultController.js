@@ -12,6 +12,10 @@ app.controller("ResultController", ['$scope','$rootScope', "User", "UserTest", "
 		$scope.isCorrect = function(question) {
 			return question.isCorrect($rootScope.userTest.getSelectedOption(question.id));
 		}
+		$scope.onUserSignedIn = function(){
+			$scope.user = $localStorage.userData;
+		}
+		$rootScope.$on(app.constant.events.userSignedIn, $scope.onUserSignedIn);
 	}
 ]);
 

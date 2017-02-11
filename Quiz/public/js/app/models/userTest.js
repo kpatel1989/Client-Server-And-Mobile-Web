@@ -3,7 +3,7 @@
  */
 app.factory("UserTest",["$http", function($http){
 	var UserTest = function(userTestData) {
-		this.user = userTestData.user || null;
+		this.user = userTestData ? userTestData.user : null;
 		this.score = 0;
 		this.attemptedQuestions = {};
 	}
@@ -47,7 +47,7 @@ app.factory("UserTest",["$http", function($http){
 			id : this.id,
 			score : this.score,
 			attemptedQuestions : this.attemptedQuestions,
-			user: this.user.toJSON()
+			user: (this.user ? this.user.toJSON() : null)
 		}
 	}
 	return UserTest;

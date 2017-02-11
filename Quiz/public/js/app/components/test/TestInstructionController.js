@@ -1,7 +1,6 @@
 app.controller("TestInstructionController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', '$routeParams', 'quizService',
 	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage,$routeParams,quizService) {
-		//create an object of user to connect the registration page
-		$rootScope.user = new User();
+		
 		$localStorage.testStarted = false;
 		$localStorage.testFinished = false;
 		$scope.go = function ( path ) {

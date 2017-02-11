@@ -13,9 +13,8 @@ app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "Qu
 		$scope.questionNumber=1;
 
 		//Create a UserTest object to save user selected options.
-		$rootScope.userTest = new UserTest({
-			"user" : $scope.user
-		});
+		$rootScope.userTest = new UserTest();
+		
 		//Fetch the next question and check for last question
 		$scope.questionModel = $rootScope.quizModel.getNextQuestion();
 		if  ($scope.quizModel.isLast()) {

@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li class="sign-in" ng-show="!isLoggedIn"><a href="#" data-toggle="modal" data-target="#signInModal">Sign in / Register </a></li>
             <li ng-show="isLoggedIn">
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span>@{{user.firstName}}</span> <span>@{{user.lastName}}</span> <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"> </span> <span>@{{user.firstName}}</span> <span>@{{user.lastName}}</span> <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a ng-click="go('/user/dashboard')">Dashboard</a></li>
                     <li role="separator" class="divider"></li>

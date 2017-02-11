@@ -16,9 +16,11 @@ app.controller("HeaderController", ['$scope','$rootScope', "User", "$location", 
 		$scope.onLogout = function() {
 			//refresh page;
 			$scope.isLoggedIn = false;
+			delete $rootScope.user;
+			$scope.go("/");
 		}
 		$rootScope.$on(app.constant.events.userSignedIn,function(obj,userData){
-			$scope.user = $rootScope.user = userData;
+			$scope.user = userData;
 			$scope.isLoggedIn = true;
 		});
 	}

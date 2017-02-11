@@ -1,7 +1,5 @@
 app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationService", "$localStorage",function($scope,$rootScope,UserAuthenticationService,$localStorage) {
-		$scope.user = {
-			"firstName" : "123"
-		};
+
 		$scope.validateEmailAddress = function() {
 			$scope.invalidEmailAddress = !signInForm.emailAddress.validity.valid;
 		}
@@ -34,6 +32,7 @@ app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationSe
 				delete $scope.user.confirmPassword;
 				UserAuthenticationService.login($scope.user).then(function(res) {
 					UserAuthenticationService.setCredentials(res.data);
+					$rootScope.user = res.data;
 					$rootScope.$broadcast(app.constant.events.userSignedIn,res.data);
 					$('#signInModal').modal('hide');
 				}, function(error) {
@@ -50,6 +49,8 @@ app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationSe
 				delete $scope.user.confirmPassword;
 				UserAuthenticationService.register($scope.user).then(function(res) {
 					UserAuthenticationService.setCredentials(res.data);
+					$rootScope.user = res.data;
+					$rootScope.$broadcast(app.constant.events.userSignedIn,res.data);
 				}, function(error) {
 					console.log(error);
 				});	
