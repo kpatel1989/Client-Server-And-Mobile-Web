@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Response;
 
 class RedirectIfAuthenticated
 {
@@ -17,8 +18,8 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+        if ($request->session()->getId() != $request->header("Authorization")) {
+            return response(['error'=> 'Unauthorized Access detected'],401);
         }
 
         return $next($request);

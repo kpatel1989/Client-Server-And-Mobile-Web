@@ -4,6 +4,11 @@ app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "Qu
 		  $location.path( path );
 		};
 
+		//Timer stop event listener to display submit button.
+		$rootScope.$on(app.constant.events.timerStopped,function(obj,time){
+			$scope.isLast = true;
+		})
+
 		//Display the question number
 		$scope.questionNumber=1;
 
@@ -32,7 +37,7 @@ app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "Qu
 		 * Submit button click listener.
 		 */
 		$scope.submit = function() {
-			$scope.$root.$broadcast("TEST_FINISHED",600);
+			$scope.$root.$broadcast(app.constant.events.testFinished);
 			var score = $scope.quizModel.compileAnswersToScore($scope.userTest.getSelectedOptions());
 			$rootScope.userTest.setScore(score);
 			$rootScope.score = score;

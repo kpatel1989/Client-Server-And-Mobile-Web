@@ -27,7 +27,7 @@ app.controller("timerController", ['$scope','$rootScope','Timer',function($scope
 	/**
 	 * Test finished event listener.
 	 */
-	$rootScope.$on("TEST_FINISHED",function(){
+	$rootScope.$on(app.constant.events.testFinished,function(){
 		$scope.resetTimer();
 	})
 }]);

@@ -6,11 +6,6 @@ app.controller("HomeController", ['$scope','$rootScope', "User", "$location",'qu
 		  $location.path( path );
 		};
 
-		//Timer stop event listener to display submit button.
-		$rootScope.$on("TIMER_STOPPED",function(obj,time){
-			$scope.isLast = true;
-		})
-
 		/**
 		 * "Take a quiz" button click handler 
 		 */

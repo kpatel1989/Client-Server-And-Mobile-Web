@@ -15,11 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*Route::get('/test/{testname}', function($testName) {
-	return File::get(realpath(__DIR__). '/../api/quiz-' . $testName . ".json");
-});*/
+Route::get('/api/quiz/{testname}',[
+	'middleware' => 'user',
+	'uses' => 'Quiz\QuizController@getTest']);
 
-Route::get('/api/quiz/{testname}', 'Quiz\QuizController@getTest');
+Route::post('/api/user/authenticate','User\UserController@login');
 
-Route::post('/api/user/authenticate', 'User\UserController@login');
+Route::post('/api/user/logout', 'User\UserController@logout');
+
 Route::post('/api/user/register', 'User\UserController@register');
+
+Route::post('/api/user/{userid}', [
+	'middleware' => 'user',
+	'uses' => 'User\UserController@get']);
+

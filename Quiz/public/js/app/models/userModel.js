@@ -14,13 +14,6 @@ app.factory("User",['$http',function($http){
 		this.address = userData.address;
 	};
 
-	User.prototype.id = null,
-	User.prototype.firstName = "",
-	User.prototype.lastName = "",
-	User.prototype.emailAddress = "",
-	User.prototype.phoneNumber = "",
-	User.prototype.address = "",
-
 	/**
 	 * Returns the full username
 	 */
