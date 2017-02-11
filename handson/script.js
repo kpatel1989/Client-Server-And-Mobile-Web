@@ -11,7 +11,7 @@ $(document).ready(function(){
 		table.empty();
 		var tr = $("<tr></tr>"); 
 		for(k=0,i=0,j=0;k<m*m;k++,i = parseInt(k / m), j = k % m) {
-			var td = $("<td><input type='text' id='cell-"+ i + "-" + j +"' name='cell-"+ i  + j +"' readonly/></td>");
+			var td = $("<td><input type='text' id='cell-"+ i + "-" + j +"' name='cell-"+ i + "-" + j +"' readonly/></td>");
 			if (j == 0) {
 				tr = $("<tr></tr>");
 			}

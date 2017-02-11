@@ -10,8 +10,7 @@
 		$matrix[$i][$m-$i-1] = $_POST["cell-".$i."-".($m-$i-1)];
 		$reverseDiagonal += $matrix[$i][$m-$i-1];
 	}
-	// print_r("Matrix=". implode($matrix));
-	print_r("<br/>Diagonal = " . $diagonal);
-	print_r("<br/>Reverse Diagonal = " . $reverseDiagonal);
+	print_r("<br/>PRIMARY Diagonal = " . $diagonal);
+	print_r("<br/>SECONDARY Diagonal = " . $reverseDiagonal);
 
 ?>
