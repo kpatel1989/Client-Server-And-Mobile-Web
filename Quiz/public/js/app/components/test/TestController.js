@@ -1,5 +1,5 @@
-app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', 
-	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage) {
+app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', 'UserTestService',
+	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage, UserTestService) {
 		$scope.go = function ( path ) {
 		  $location.path( path );
 		};
@@ -14,7 +14,11 @@ app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "Qu
 
 		//Create a UserTest object to save user selected options.
 		$rootScope.userTest = new UserTest();
-		
+		if ($rootScope.user) {
+			$rootScope.userTest.user = $rootScope.user;
+		}
+		$rootScope.userTest.testId = $localStorage.currentTest.id;
+
 		//Fetch the next question and check for last question
 		$scope.questionModel = $rootScope.quizModel.getNextQuestion();
 		if  ($scope.quizModel.isLast()) {
@@ -39,8 +43,12 @@ app.controller("TestController", ['$scope','$rootScope', "User", "UserTest", "Qu
 			$scope.$root.$broadcast(app.constant.events.testFinished);
 			var score = $scope.quizModel.compileAnswersToScore($scope.userTest.getSelectedOptions());
 			$rootScope.userTest.setScore(score);
-			$rootScope.score = score;
-			$scope.go('/test/result');
+			UserTestService.submitTest($rootScope.userTest.toJSON()).then(function(res) {
+				$rootScope.userTest.id = res.data.id;
+				$scope.go('/test/result');
+			}, function() {
+				console.log("error saving test to server.");
+			});
 		}
 
 }]);

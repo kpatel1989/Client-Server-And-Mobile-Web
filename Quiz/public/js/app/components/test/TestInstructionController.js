@@ -1,6 +1,6 @@
 app.controller("TestInstructionController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', '$routeParams', 'quizService',
 	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage,$routeParams,quizService) {
-		
+
 		$localStorage.testStarted = false;
 		$localStorage.testFinished = false;
 		$scope.go = function ( path ) {
@@ -12,21 +12,16 @@ app.controller("TestInstructionController", ['$scope','$rootScope', "User", "Use
 		 */
 		$scope.start = function() {
 			// Check if the form is valid.
-			// if (!$scope.validateForm()) {
-			// 	return false;
-			// }
 			var defer = quizService.getData($routeParams.testName);
 			defer.then($scope.onDataReceived, function(){
 				console.log("error");
 			});
-			$rootScope.quizName= $routeParams.testName;
 		};
 		
 		$scope.onDataReceived = function(res){
 			// initialize the quiz model with data downloaded from service.
 			$rootScope.quizModel = new QuizModel(res.data);
 			$scope.go('/test/start');
-			// $scope.go('/test/instruction');
 		}
 
 		/**

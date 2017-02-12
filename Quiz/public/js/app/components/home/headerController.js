@@ -1,7 +1,7 @@
 app.controller("HeaderController", ['$scope','$rootScope', "User", "$location", "UserAuthenticationService", "$localStorage",
 	function($scope,$rootScope,User, $location,UserAuthenticationService,$localStorage) {
 		if ($localStorage.userData) {
-			$scope.user  = $rootScope.user = $localStorage.userData;
+			$scope.user  = $rootScope.user = new User($localStorage.userData);
 			$scope.isLoggedIn = true;
 		} else {
 			$scope.isLoggedIn = false;

@@ -8,6 +8,7 @@ app.factory("UserTest",["$http", function($http){
 		this.attemptedQuestions = {};
 	}
 	UserTest.prototype.userId = null;
+	UserTest.prototype.testId = null;
 	UserTest.prototype.score = null;
 	UserTest.prototype.attemptedQuestions = {};
 
@@ -45,6 +46,7 @@ app.factory("UserTest",["$http", function($http){
 	UserTest.prototype.toJSON = function() {
 		return {
 			id : this.id,
+			testId : this.testId,
 			score : this.score,
 			attemptedQuestions : this.attemptedQuestions,
 			user: (this.user ? this.user.toJSON() : null)

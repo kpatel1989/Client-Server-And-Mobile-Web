@@ -7,6 +7,7 @@
 	*/
 	class UserCredential extends Model
 	{
+		protected $table = 'user_credentials';
 		public $timestamps = false;
 	}
 ?>

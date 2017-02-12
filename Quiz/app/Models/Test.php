@@ -5,8 +5,9 @@
 	/**
 	* 	Defines a User Model.
 	*/
-	class UserSession extends Model
+	class Test extends Model
 	{
+		protected $table = 'tests';
 		public $timestamps = false;
 	}
 ?>

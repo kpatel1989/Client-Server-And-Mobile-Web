@@ -60,22 +60,26 @@
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.module.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.routes.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/services/app.services.js"></script>
-    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userAuthenticationService.js"></script>
+    
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerDirective.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerModel.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerFilter.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/questionModel.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/questionBankModel.js"></script>
+    
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userAuthenticationService.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userTestService.js"></script>
+    
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userModel.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userTest.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/models/Test.js"></script>
 
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/signin/signinDirective.js"></script>
 
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/homeController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/home/headerController.js"></script>
-    
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestInstructionController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/TestController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/test/ResultController.js"></script>

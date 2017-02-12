@@ -2,18 +2,18 @@
 	<h1 class="text-center banner"> Online Quiz on <br/> Frontend Technologies.</h1>
 	<div class="row text-center">
 		<div class="btn-container">
-			<div class="quiz-card">
-				<img src="images/js.png"/>
-				<button class="btn btn-success" id="takeAQuiz" ng-click="go('/test/javascript/instruction')">
-					Take a Javascript quiz
+			<div class="quiz-card" ng-repeat="test in testList">
+				<img src="images/{{test.testDisplayImage}}"/>
+				<button class="btn btn-success" id="takeAQuiz" ng-click="loadTest(test)">
+					Take a {{test.testName}} quiz
 				</button>
 			</div>
-			<div class="quiz-card">
+<!-- 			<div class="quiz-card">
 				<img src="images/jquery.png"/>
 				<button class="btn btn-success" id="takeAJqueryQuiz" ng-click="go('/test/jquery/instruction')">
 					Take a Jquery quiz
 				</button>
-			</div>
+			</div> -->
 		</div>
 		<div class="text-info" id="about"> <h4>About the quiz</h4>
 			<p class="text-info">
