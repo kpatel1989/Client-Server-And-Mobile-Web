@@ -3,6 +3,7 @@
 <head>
     <title>Javascript Blog Post</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta description="This web app will certify you about how much you know about javascript.">
     <link rel="icon" href="images/favicon.png">
     
@@ -52,14 +53,11 @@
     </nav>
     <signin></signin>
     <div class="container">
-        <div class="container">
             <div ng-view></div>
-        </div>
     </div>
     
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.module.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/app.routes.js"></script>
-    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/app.services.js"></script>
     
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerController.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/components/timer/timerDirective.js"></script>
@@ -70,6 +68,7 @@
     
     <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userAuthenticationService.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/services/userTestService.js"></script>
+    <script type="text/javascript" src="{{config('app.url')}}/js/app/services/UserServices.js"></script>
     
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userModel.js"></script>
     <script type="text/javascript" src="{{config('app.url')}}/js/app/models/userTest.js"></script>

@@ -54,6 +54,11 @@ class QuizController extends Controller {
 		$userTestModel->save();
 		return $userTestModel;	
 	}
+
+	public function getUserTests($userId, Request $request, Response $response) {
+		$userTests = UserTest::getAllTests($userId);
+		return response(['tests'=>$userTests]);
+	}
 }
 
 ?>

@@ -1,8 +1,12 @@
 <div>
 	<div class="score-container">
 		<p> You have scored {{userTest.score}} points. </p>
-		<p> You have answered {{userTest.score}} out of {{quizModel.questions.length}}  questions correctly!</p>
+		<p> You have answered <label id="scoreCount" data-toggle="modal" data-target="#answersModal"> {{userTest.score}} out of {{quizModel.questions.length}} </label> questions correctly!</p>
 	</div>
+	<!-- <div class="result-actions-container btn-group">
+		<button name="answers" class="btn btn-primary" data-toggle="modal" data-target="#answersModal"><span class="glyphicon glyphicon-list"> </span> Answers</button>
+		 <button name="print" class="btn btn-primary" id="printCertificat"><span class="glyphicon glyphicon-print"> </span> Print a free certificate!</button>
+	</div> -->
 	<div class="sign-in-subscribe-container">
 		<div class="sign-in-link-container" ng-show="!user">
 			<div class="sign-in-request">
@@ -11,16 +15,17 @@
 			</div>
 		</div>
 		<p ng-show="user">
-			<input type="button" class="btn btn-success" name="saveToProfile" value="Add this score to your profile badge."/>
+			<!-- <input type="button" class="btn btn-success" name="saveToProfile" value="Add this score to your profile badge."/> -->
+			<input type="button" class="btn btn-success quiz-theme-btn" name="backToDashboard" ng-click="goBackToDashboard()" value="Go back to dashboard."/>
 		</p>
 		<div class="subscribe-blog" ng-show="!user">
 			<h5>Subscribe to this blog to get latest news and new quizes directly to your mail box. </h5>
 			<form name="subscribeForm"> 
 				<div class="subscribe-email-id">
 					<div class="input-group">
-						<input class=" form-control" type="email" name="emailAddress" id="emailAddress" ng-model="user.emailAddress" required=true placeholder="Enter your email address" />
+						<input class=" form-control" type="email" name="subscribeEmailId" id="subscribeEmailId"  ng-model="subscribeEmailId" required=true placeholder="Enter your email address" />
 						<div class="input-group-btn" name="subscribe" value="Subscribe" id="basic-addon2">
-							<input type="button" class="btn btn-success" name="subscribe" value="Subscribe"/>
+							<input type="submit" class="btn btn-success" name="subscribe" value="Subscribe" ng-click="subscribe()"/>
 						</div>
 					</div>
 					<div class="error" role="alert" ng-show="invalidEmailAddress">
@@ -31,10 +36,7 @@
 			</form>
 		</div>
 	</div>
-	<div class="result-actions-container btn-group">
-		<button name="answers" class="btn btn-primary" data-toggle="modal" data-target="#answersModal"><span class="glyphicon glyphicon-list"> </span> Answers</button>
-		<button name="compare" class="btn btn-primary"><span class="glyphicon glyphicon-stats"> </span> Compare your result </button>
-	</div>
+	
 	<!-- <div class="btn-group hidden-print"> -->
 		<!-- <button name="print" class="btn btn-default" onclick="print()"><span class="glyphicon glyphicon-print"> </span> Print a certificate</button> -->
 	<!-- </div> -->

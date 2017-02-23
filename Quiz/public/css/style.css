@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,400i,700,700i');
 html, body {
-    background-color: #fff;
-    color: #636b6f;
-    font-family: 'Raleway', sans-serif;
+    background-color: rgb(196, 206, 200);
+    color: #2c2f30;
+    font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
     height: 100vh;
     margin: 0;
+    background-image: url('../images/bg.jpeg');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
 }
 
 .full-height {
@@ -25,6 +30,11 @@ html, body {
     position: absolute;
     right: 10px;
     top: 18px;
+}
+
+.navbar-default {
+    background: #2C3E50;
+    /* margin: 0px; */
 }
 
 .content {
@@ -179,7 +189,7 @@ textarea#address {
 }
 
 .radio:hover {
-    background-color: #e8f4e8;
+    background-color: #bac8c1;
 }
 
 .radio label {
@@ -204,7 +214,8 @@ textarea#address {
 .labelled-input .control-label:hover {width: 30%;}
 
 .score-container {
-    font-size: 30px;
+    font-size: 18px;
+    text-align: center;
 }
 
 .sign-in-link-container, .subscribe-blog {
@@ -242,4 +253,74 @@ textarea#address {
     body {
         padding-top: 20px;
     }
+}
+
+
+.subscribe-email-id .error {
+    text-align: left;
+}
+
+@media (min-width: 992px) {
+.container {
+    /* width: 750px; */
+}
+}
+
+
+
+
+.navbar-default li a.dropdown-toggle {
+    text-shadow: 1px 1px #000;
+    box-shadow: 0 0 9px -2px #172533;
+    color: #f39c12!important;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover {
+    color: #777;
+}
+
+a.navbar-brand {
+    color: #f39c12!important;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {background-color: #42505d;}
+
+.btn-default.quiz-theme-btn {
+    color: #fcf8e4;
+    font-weight: bold;
+    background-color: rgb(198, 141, 32);
+    box-shadow: 0px 0px 2px 0px black;
+    outline: none!important;
+}
+
+.btn-success.quiz-theme-btn {
+    font-weight: bold;
+    box-shadow: 0px 0px 2px 0px black;
+    border-color: #d7dbde;
+}
+
+.result-actions-container {
+    margin: 20px 0px;
+}
+
+.sign-in-subscribe-container {
+    text-align: center;
+}
+
+label#scoreCount {
+    color: #bc7c16;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+label#scoreCount:hover {
+    cursor: pointer;
+}
+
+.btn-success.quiz-theme-btn:hover {
+    border: 0px;
+}
+
+.btn-default.quiz-theme-btn:hover {
+    border: 0px;
 }

@@ -8,6 +8,7 @@ use Config;
 use Input;
 use App\Models\User;
 use App\Models\UserCredential;
+use App\Providers\MailServiceProvider;
 
 class UserController extends Controller {
 
@@ -55,8 +56,25 @@ class UserController extends Controller {
 		return response([""],200);
 	}
 
-	public function get($userId, $request, $response) {
+	public function get($userId,Request $request,Response $response) {
 		return User::where('id',$userId)->first();
+	}
+
+	public function subscribe(Request $request,Response $response) {
+		//email
+		$emailId = $request->input('subscribeEmailId');
+		$user = User::where("emailId", $emailId)->first();
+		if (empty($user)) {
+			$user = new User();
+			$user->emailId = $emailId;
+		}
+		$user ->isSubscriber = 1;
+		$user->save();
+
+		// send email
+		$subject = "Thank you for subscribing";
+		$body = "Thank you for subscribing to the JS Blog";
+		return  response()->json(MailServiceProvider::sendMail($emailId, Config::get('mail.from'), $subject, $body));
 	}
 }
 

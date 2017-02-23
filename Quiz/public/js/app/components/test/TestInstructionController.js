@@ -1,5 +1,5 @@
-app.controller("TestInstructionController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', '$routeParams', 'quizService',
-	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage,$routeParams,quizService) {
+app.controller("TestInstructionController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', '$routeParams', 'UserTestService',
+	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage,$routeParams,UserTestService) {
 
 		$localStorage.testStarted = false;
 		$localStorage.testFinished = false;
@@ -12,7 +12,7 @@ app.controller("TestInstructionController", ['$scope','$rootScope', "User", "Use
 		 */
 		$scope.start = function() {
 			// Check if the form is valid.
-			var defer = quizService.getData($routeParams.testName);
+			var defer = UserTestService.getData($routeParams.testName);
 			defer.then($scope.onDataReceived, function(){
 				console.log("error");
 			});

@@ -1,5 +1,5 @@
-app.controller("ResultController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', 'UserTestService',
-	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage, UserTestService) {
+app.controller("ResultController", ['$scope','$rootScope', "User", "UserTest", "QuizModel", "$location", '$localStorage', 'UserTestService', 'UserService', 
+	function($scope,$rootScope,User,UserTest,QuizModel,$location, $localStorage, UserTestService, UserService) {
 		$scope.go = function ( path ) {
 		  $location.path( path );
 		};
@@ -18,6 +18,20 @@ app.controller("ResultController", ['$scope','$rootScope', "User", "UserTest", "
 			UserTestService.updateTest($rootScope.userTest.toJSON());
 		}
 		$rootScope.$on(app.constant.events.userSignedIn, $scope.onUserSignedIn);
+
+		$scope.subscribe = function() {
+			$scope.validateEmailId()
+			if (!$scope.invalidEmailAddress) {
+				UserService.subscribe($scope.subscribeEmailId);
+			}
+		}
+
+		$scope.validateEmailId = function() {
+			$scope.invalidEmailAddress = !subscribeForm.subscribeEmailId.validity.valid;
+		}
+		$scope.goBackToDashboard = function() {
+			$scope.go("/user/dashboard");
+		}
 	}
 ]);
 
