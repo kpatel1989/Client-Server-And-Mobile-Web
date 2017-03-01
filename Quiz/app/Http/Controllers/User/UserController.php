@@ -48,6 +48,7 @@ class UserController extends Controller {
 		$userCred->password = $userData['password'];
 		$userCred->save();
 
+		$user["sessionId"] = $request->session()->getId();
 		return $user;
 	}
 

@@ -1,6 +1,7 @@
 app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationService", "$localStorage", "User", 
 	function($scope,$rootScope,UserAuthenticationService,$localStorage, User) {
 
+		$scope.signInError = "";
 		$scope.validateEmailAddress = function() {
 			$scope.invalidEmailAddress = !signInForm.emailAddress.validity.valid;
 		}
@@ -37,6 +38,7 @@ app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationSe
 					$rootScope.$broadcast(app.constant.events.userSignedIn,res.data);
 					$('#signInModal').modal('hide');
 				}, function(error) {
+					$scope.signInError = error.data.error;
 					console.log(error);
 				});
 			}
@@ -52,10 +54,16 @@ app.controller("signInController", ['$scope','$rootScope', "UserAuthenticationSe
 					UserAuthenticationService.setCredentials(res.data);
 					$rootScope.user = new User(res.data);
 					$rootScope.$broadcast(app.constant.events.userSignedIn,res.data);
+					$('#signInModal').modal('hide');
 				}, function(error) {
+					$scope.signInError = error.data.error;
 					console.log(error);
 				});	
 			}
 		}
+
+		$scope.$on('$viewContentLoaded', function() {
+		    $scope.signInError = null;
+		});
 	}
 ]);

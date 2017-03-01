@@ -8,13 +8,19 @@ app.controller("HomeController", ['$scope','$rootScope', "User", "$location", "U
 
 		$scope.testList = [];
 
-		UserTestService.getTestList().then(function(res) {
-			$scope.testList = res.data;
-		})
+		$scope.getTest = function() {
+			UserTestService.getTestList().then(function(res) {
+				$scope.testList = res.data;
+			})
+		}
 
 		$scope.loadTest = function(test) {
 			$scope.go('/test/' + test.testName.toLowerCase() + '/instruction');
 			$localStorage.currentTest = test;
 		}
+
+		$scope.$on('$viewContentLoaded', function() {
+		    $scope.getTest();
+		});
 	}
 ]);
